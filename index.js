@@ -2,16 +2,13 @@
 
 module.exports = scrump
 
-function scrump (
-  node,
-  criteria,
-  {
-    all = true,
-    array = true,
-    recursive = true,
-    visited = new Set()
-  } = {}
-) {
+function scrump (node,criteria, opts) {
+  opts = opts || {};
+  var all = opts.all || true,
+    array = opts.array || true,
+    recursive = opts.recursive || true,
+    visited = opts.visited || new Set();
+  
   if (visited.has(node)) {
     return []
   }
